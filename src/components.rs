@@ -8,12 +8,17 @@ pub fn profile_card() -> Html {
         <div class="profile_card">
             <img class="profile_avatar" src="https://placehold.co/120x120" alt="avatar" />
             <table class="information_table">
-                  <tbody>
-                      { for INFO.iter().map(|item| html! {
-                          <tr>
-                              <td>{ *item }</td>
-                          </tr>
-                    }) }
+                <thead>
+                    {"Matias Civadda"}
+                </thead>
+                <tbody>
+                { for INFO.iter().map(|item| html! {
+                        <tr>
+                            <td>{ *item }</td>
+                        </tr>
+                        }
+                    )
+                }
                 </tbody>
             </table>
         </div>

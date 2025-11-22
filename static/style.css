@@ -33,14 +33,22 @@ body::after {}
 }
 
 .information_table {
-  color: #fff;
+  color: #d2dae2;
   font-family: "Fira Code", monospace;
   font-size: 16px;
   font-weight: 600;
-  margin-top: 4px;
+  margin-top: 1rem;
   width: 100%;
   border-collapse: separate;
   border-spacing: 0;
+}
+
+.information_table thead {
+  color: #ffffff;
+  font-size: 18px;
+  padding: 6px 12px;
+  border-radius: 8px;
+  text-align: center;
 }
 
 .information_table td {

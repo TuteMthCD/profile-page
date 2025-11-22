@@ -1,14 +1,13 @@
-mod profile_card;
+mod components;
 
-use profile_card::ProfileCard;
-
+use components::ProfileCard;
 use yew::prelude::*;
 
 #[function_component(App)]
 fn app() -> Html {
     html! {
         <main class="shell">
-        <ProfileCard/>
+            <ProfileCard />
         </main>
     }
 }
