@@ -1,13 +1,20 @@
 mod components;
 
-use components::ProfileCard;
+use components::{AboutSection, ProfileCard};
 use yew::prelude::*;
 
 #[function_component(App)]
 fn app() -> Html {
     html! {
         <main class="shell">
-            <ProfileCard />
+            <div class="row">
+                <ProfileCard />
+
+                <div class="col">
+                    <AboutSection />
+                </div>
+
+            </div>
         </main>
     }
 }

@@ -3,6 +3,9 @@
 * {}
 
 body {}
+body {
+  background: #bdc3c7;
+}
 
 body::before,
 body::after {}
@@ -10,6 +13,91 @@ body::after {}
 body::after {}
 
 .shell {}
+
+.row {
+  display: flex;
+  gap: 1rem;
+}
+
+.col {
+  flex: 1;
+}
+
+.card {
+  background: #ecf0f1;
+  border-radius: 16px;
+  padding: 1.5rem;
+  font-family: "Fira Code", monospace;
+  color: #000;
+}
+
+.card h3 {
+  font-size: 1.5rem;
+  margin: 0;
+  letter-spacing: 0.05em;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.about_table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin-top: 1rem;
+  font-size: 0.95rem;
+}
+
+.about_table td {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+
+
+.about_table th {
+  color: #2c3e50;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  color: rgba(0, 0, 0, 0.6);
+  padding-right: 1rem;
+  text-align: left;
+  font-weight: 700;
+}
+
+.about_table td {
+  text-align: left;
+}
+
+.about_table tr:last-child td {
+  border-bottom: none;
+}
+
+.roles_table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.roles_table th {
+  text-transform: uppercase;
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  color: rgba(0, 0, 0, 0.5);
+  padding-right: 0.75rem;
+  text-align: left;
+}
+
+.roles_table td {
+  text-align: left;
+  font-weight: 600;
+  padding-bottom: 0.35rem;
+}
+
+.roles_table tr:last-child td {
+  padding-bottom: 0;
+}
+
 
 .profile_card {
   background: #1e272e;
@@ -33,7 +121,7 @@ body::after {}
 }
 
 .information_table {
-  color: #d2dae2;
+  color: #ecf0f1;
   font-family: "Fira Code", monospace;
   font-size: 16px;
   font-weight: 600;
