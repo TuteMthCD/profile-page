@@ -18,7 +18,7 @@ pub fn profile_card() -> Html {
             <img class="profile_avatar" src="https://placehold.co/120x120" alt="avatar" />
             <table class="information_table">
                 <thead>
-                    {"Matías Civadda"}
+                    {"Matias Civadda"}
                 </thead>
                 <tbody>
                     { for INFO.iter().map(|item| html! {
