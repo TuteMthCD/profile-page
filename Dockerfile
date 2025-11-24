@@ -4,7 +4,7 @@ FROM rust:1.81 as builder
 WORKDIR /app
 
 # Install Trunk and WebAssembly target
-RUN cargo install trunk && \
+RUN cargo install trunk --locked --version 0.20.3 && \
     rustup target add wasm32-unknown-unknown
 
 # Cache dependencies
