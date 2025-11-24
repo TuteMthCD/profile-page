@@ -170,7 +170,7 @@ const SKILL_GROUPS: [SkillCategory; 6] = [
 pub fn profile_card() -> Html {
     html! {
         <div class="profile_card">
-            <img class="profile_avatar" src="https://placehold.co/120x120" alt="avatar" />
+            <img class="profile_avatar" src="https://media.licdn.com/dms/image/v2/D4E03AQHJPm9riNkqXg/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1711079571206?e=1765411200&v=beta&t=myKQhqhDFg06yaMcSHGRItW-EkqMUoGSOOeRWiEgY50" alt="avatar" />
             <table class="information_table">
                 <thead>
                     {"Matias Civadda"}
@@ -185,6 +185,20 @@ pub fn profile_card() -> Html {
                     }) }
                 </tbody>
             </table>
+            <div class="social_buttons">
+                <a class="social_button" href="https://github.com/TuteMthCD" target="_blank" rel="noreferrer">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M12 0.5a11.5 11.5 0 0 0-3.64 22.43c0.58 0.11 0.79-0.25 0.79-0.56l-0.02-2c-3.22 0.7-3.9-1.55-3.9-1.55-0.53-1.34-1.3-1.7-1.3-1.7-1.06-0.73 0.08-0.72 0.08-0.72 1.17 0.08 1.78 1.2 1.78 1.2 1.04 1.79 2.74 1.27 3.41 0.97 0.11-0.76 0.41-1.27 0.74-1.56-2.57-0.29-5.27-1.28-5.27-5.7 0-1.26 0.45-2.28 1.19-3.08-0.12-0.3-0.52-1.51 0.11-3.15 0 0 0.97-0.31 3.18 1.18a10.9 10.9 0 0 1 5.8 0c2.2-1.49 3.16-1.18 3.16-1.18 0.64 1.64 0.24 2.85 0.12 3.15 0.74 0.8 1.18 1.82 1.18 3.08 0 4.44-2.71 5.41-5.29 5.69 0.42 0.36 0.8 1.07 0.8 2.15l-0.02 3.18c0 0.31 0.21 0.68 0.8 0.56A11.5 11.5 0 0 0 12 0.5z" />
+                    </svg>
+                    <span>{"GitHub"}</span>
+                </a>
+                <a class="social_button" href="https://www.linkedin.com/in/matias-civadda-3319a22bb/" target="_blank" rel="noreferrer">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M4.98 3.5a2.25 2.25 0 1 1 0 4.5 2.25 2.25 0 0 1 0-4.5zM3 9h3.96v12H3zM9.75 9h3.79v1.64h0.05c0.53-1 1.83-2.05 3.77-2.05 4.03 0 4.77 2.66 4.77 6.12V21H18.2v-5.33c0-1.27-0.02-2.9-1.76-2.9-1.77 0-2.04 1.38-2.04 2.8V21H10V9z" />
+                    </svg>
+                    <span>{"LinkedIn"}</span>
+                </a>
+            </div>
         </div>
     }
 }

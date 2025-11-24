@@ -270,6 +270,36 @@ body::after {}
   background: transparent;
 }
 
+.social_buttons {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1.25rem;
+}
+
+.social_button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: #f8fafc;
+  text-decoration: none;
+  font-size: 0.9rem;
+  background: rgba(255, 255, 255, 0.1);
+  line-height: 1;
+}
+
+.social_button:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.social_button svg {
+  width: 0.95rem;
+  height: 0.95rem;
+  fill: currentColor;
+}
+
 @keyframes float {
   0% {}
   50% {}
