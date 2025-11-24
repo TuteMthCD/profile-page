@@ -1,5 +1,5 @@
 # Multi-stage build: compile Yew app to WASM with Trunk, then serve static files via nginx
-FROM rust:1.81 as builder
+FROM rust:1.84 as builder
 
 WORKDIR /app
 
