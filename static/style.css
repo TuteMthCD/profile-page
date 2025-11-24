@@ -17,10 +17,15 @@ body::after {}
 .row {
   display: flex;
   gap: 1rem;
+  align-items: flex-start;
 }
 
 .col {
   flex: 1;
+}
+
+.col > * + * {
+  margin-top: 1.5rem;
 }
 
 .card {
@@ -37,6 +42,65 @@ body::after {}
   letter-spacing: 0.05em;
   padding-bottom: 0.75rem;
   border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.experience_list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.experience_header {
+  margin-top: 1rem;
+}
+
+
+.experience_meta_primary,
+.experience_meta_details {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin-top: 1rem;
+  font-size: 0.95rem;
+}
+
+.experience_meta_primary th,
+.experience_meta_details th {
+  color: rgba(0, 0, 0, 0.6);
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  padding-right: 1rem;
+  text-align: left;
+  font-weight: 700;
+}
+
+.experience_meta_primary td,
+.experience_meta_details td {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+  text-align: left;
+}
+
+.experience_meta_primary tr:last-child td,
+.experience_meta_details tr:last-child td {
+  border-bottom: none;
+}
+
+.experience_points {
+  margin: 1rem 0 0;
+  padding-left: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.5rem;
+  line-height: 1.45;
+}
+
+.experience_points li {
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.06);
 }
 
 .about_table {
@@ -104,12 +168,13 @@ body::after {}
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  max-width: 200px;
-  width: 100%;
-  margin: 0 auto;
+  width: 220px;
+  flex-shrink: 0;
+  top: 1rem;
+  height: 500px;
+  position: sticky;
 }
 
-.profile_avatar {}
 .profile_avatar {
   width: 120px;
   height: 120px;
