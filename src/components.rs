@@ -1,6 +1,11 @@
 use yew::prelude::*;
 
-const INFO: [&str; 4] = ["Información", "Experiencia", "Educación", "Skills"];
+const INFO: [(&str, &str); 4] = [
+    ("Información", "sobre-mi"),
+    ("Experiencia", "experiencia"),
+    ("Educación", "educacion"),
+    ("Skills", "skills"),
+];
 const ABOUT_ROWS: [(&str, &str); 7] = [
     ("Nombre completo", "Matias Nahuel Civadda"),
     ("Rol Actual", "Software Developer (Embedded Software)"),
@@ -17,6 +22,19 @@ struct WorkItem {
     period: &'static str,
     location: &'static str,
     points: &'static [&'static str],
+}
+
+struct EducationItem {
+    title: &'static str,
+    institution: &'static str,
+    location: &'static str,
+    period: &'static str,
+    notes: &'static [&'static str],
+}
+
+struct SkillCategory {
+    name: &'static str,
+    items: &'static [&'static str],
 }
 
 const WORK_EXPERIENCE: [WorkItem; 5] = [
@@ -81,6 +99,73 @@ const WORK_EXPERIENCE: [WorkItem; 5] = [
     },
 ];
 
+const EDUCATION: [EducationItem; 2] = [
+    EducationItem {
+        title: "Técnico en Electrónica",
+        institution: "Escuela Técnica N.º 1 de Vicente López",
+        location: "Vicente López, Buenos Aires",
+        period: "2012 – 2019",
+        notes: &[
+            "Subcampeón Olimpiada Nacional de Electrónica (2019).",
+            "Enfoque en robótica y programación.",
+        ],
+    },
+    EducationItem {
+        title: "Ingeniería en Sistemas (en curso)",
+        institution: "Universidad Tecnológica Nacional (UTN)",
+        location: "Buenos Aires, Argentina",
+        period: "2021 – Presente",
+        notes: &[],
+    },
+];
+
+const SKILL_GROUPS: [SkillCategory; 6] = [
+    SkillCategory {
+        name: "Programación",
+        items: &["C/C++", "Rust", "Zig", "Python"],
+    },
+    SkillCategory {
+        name: "Herramientas y flujo de trabajo",
+        items: &[
+            "FreeRTOS",
+            "Sistemas embebidos",
+            "Latex",
+            "GDB",
+            "Makefiles / CMake",
+            "Git / GitHub",
+        ],
+    },
+    SkillCategory {
+        name: "Diseño y colaboración",
+        items: &[
+            "KiCad 7.0/8.0",
+            "Eagle",
+            "EasyEDA",
+            "OnShape",
+            "Nextcloud",
+            "Jira",
+            "OpenProject",
+            "Suite Ofimática / LibreOffice",
+        ],
+    },
+    SkillCategory {
+        name: "Sistemas y redes",
+        items: &["Administración Linux", "Sistemas Cisco (Networking)"],
+    },
+    SkillCategory {
+        name: "Electrónica",
+        items: &[
+            "Diseño de circuitos electrónicos",
+            "Uso de osciloscopio",
+            "Microsoldadura",
+        ],
+    },
+    SkillCategory {
+        name: "Otras",
+        items: &["Desarrollo IoT", "Documentación técnica"],
+    },
+];
+
 #[function_component(ProfileCard)]
 pub fn profile_card() -> Html {
     html! {
@@ -91,9 +176,11 @@ pub fn profile_card() -> Html {
                     {"Matias Civadda"}
                 </thead>
                 <tbody>
-                    { for INFO.iter().map(|item| html! {
+                    { for INFO.iter().map(|(label, target)| html! {
                         <tr>
-                            <td>{ *item }</td>
+                            <td>
+                                <a class="profile_link" href={ format!("#{target}") }>{ *label }</a>
+                            </td>
                         </tr>
                     }) }
                 </tbody>
@@ -105,7 +192,7 @@ pub fn profile_card() -> Html {
 #[function_component(AboutSection)]
 pub fn about_section() -> Html {
     html! {
-        <div class="card">
+        <div id="sobre-mi" class="card">
             <h3>{"Sobre mi"}</h3>
             <table class="about_table">
                 <tbody>
@@ -124,7 +211,7 @@ pub fn about_section() -> Html {
 #[function_component(WorkExperience)]
 pub fn work_experience() -> Html {
     html! {
-        <section class="experience_list">
+        <section id="experiencia" class="experience_list">
             { for WORK_EXPERIENCE.iter().map(|item| html! {
                 <article class="card experience_block">
                     <div class="experience_header">
@@ -151,6 +238,67 @@ pub fn work_experience() -> Html {
                     </ul>
                 </article>
             }) }
+        </section>
+    }
+}
+
+#[function_component(EducationSection)]
+pub fn education_section() -> Html {
+    html! {
+        <section id="educacion" class="experience_list">
+            { for EDUCATION.iter().map(|edu| html! {
+                <article class="card experience_block">
+                    <div class="experience_header">
+                        <h3>{ edu.title }</h3>
+                        <table class="experience_meta_primary">
+                            <tbody>
+                                <tr>
+                                    <th>{"Instituto"}</th>
+                                    <td>{ edu.institution }</td>
+                                </tr>
+                                <tr>
+                                    <th>{"Ubicación"}</th>
+                                    <td>{ edu.location }</td>
+                                </tr>
+                                <tr>
+                                    <th>{"Período"}</th>
+                                    <td>{ edu.period }</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    {
+                        if !edu.notes.is_empty() {
+                            html! {
+                                <ul class="experience_points">
+                                    { for edu.notes.iter().map(|note| html! { <li>{ *note }</li> }) }
+                                </ul>
+                            }
+                        } else {
+                            Html::default()
+                        }
+                    }
+                </article>
+            }) }
+        </section>
+    }
+}
+
+#[function_component(SkillsSection)]
+pub fn skills_section() -> Html {
+    html! {
+        <section id="skills" class="card">
+            <h3>{"Skills"}</h3>
+            <div class="skills_grid">
+                { for SKILL_GROUPS.iter().map(|group| html! {
+                    <article class="skill_group">
+                        <h4>{ group.name }</h4>
+                        <ul>
+                            { for group.items.iter().map(|item| html! { <li>{ *item }</li> }) }
+                        </ul>
+                    </article>
+                }) }
+            </div>
         </section>
     }
 }

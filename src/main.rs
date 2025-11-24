@@ -12,6 +12,8 @@ fn app() -> Html {
                 <div class="col">
                     <AboutSection />
                     <WorkExperience />
+                    <EducationSection />
+                    <SkillsSection />
                 </div>
 
             </div>
