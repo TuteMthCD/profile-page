@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ProfilePage</title>
+    
+<script type="module">
+import init, * as bindings from '/profile-page-6cf7a0151aa0bd61.js';
+const wasm = await init({ module_or_path: '/profile-page-6cf7a0151aa0bd61_bg.wasm' });
+
+
+window.wasmBindings = bindings;
+
+
+dispatchEvent(new CustomEvent("TrunkApplicationStarted", {detail: {wasm}}));
+
+</script>
+    <link rel="stylesheet" href="/style-7b0a3d59bb4bba55.css" integrity="sha384-JYudP2+qhUZSWG76HDhshrQEud247tzHk68LWrMv/+BhHz2IisGaIK5wUflXLrlo"/>
+  <link rel="modulepreload" href="/profile-page-6cf7a0151aa0bd61.js" crossorigin="anonymous" integrity="sha384-i3Jfvv+yfvekyypalDwhW01jobbLeZ+xPGJqk9wJ+EKE6HfjsC4axldF8jTG3rBZ"><link rel="preload" href="/profile-page-6cf7a0151aa0bd61_bg.wasm" crossorigin="anonymous" integrity="sha384-eNCmrFuxesgGtkL4VNGwOV258zcWX54wF0r1/R1Qd9c/w4uqNU92yV7oXGmMcLlR" as="fetch" type="application/wasm"></head>
+  <body>
+    <noscript>Necesitas habilitar JavaScript para ver esta app.</noscript>
+  </body>
+</html>
