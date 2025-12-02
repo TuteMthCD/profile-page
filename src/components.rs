@@ -44,6 +44,7 @@ const WORK_EXPERIENCE: [WorkItem; 5] = [
         period: "2024 – Presente",
         location: "Buenos Aires, Argentina",
         points: &[
+            "Desarrollo con Posix 1003.1 y Software en tiempo real (RTOS)",
             "Desarrollo de software embebido en C y C++.",
             "Desarrollo de software sobre Linux utilizando C.",
             "Programación de microcontroladores (ARM, AVR, ESPRESSIF).",
